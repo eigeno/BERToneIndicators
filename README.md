@@ -2,9 +2,7 @@
 
 **Introduction**
 
-Tone indicators (written as /tone) are a tool used to reduce ambiguity,
-conveying information that is generally lost online. The literal text of informal communication like a tweet is often insufficient to determine the meaning, which relies on much a larger, inaccessible context. Tone indicators attempt to address this issue.
-Using data from Twitter, we built a BERT model to classify the tone indicator tag associated with a sentence. We then analyzed the various attention heads to gain semantic insight into which sets of words or other linguistic features are most associated with certain tone indicators.
+**Tone indicators** (written as /tone) are a tool used to **reduce ambiguity,** conveying information that is generally lost online. The literal text of informal communication like a tweet is often **insufficient to determine the meaning**, which relies on much a larger, inaccessible context. Tone indicators attempt to address this issue. Using data from Twitter, we built a BERT model to **classify the tone indicator tag** associated with a sentence. We then analyzed the various **attention heads** to gain semantic insight into which sets of words or other linguistic features are most associated with certain tone indicators.
 
 **Dataset**
 
@@ -13,8 +11,21 @@ We also obtained a training set consisting of a separate and smaller scrape of t
 
 **Usage**
 
-The BERT model with custom architecture is available in `BERT.ipynb` or alternatively `BERT.py` and the Naive Bayes classifier is available in `Baseline_Naive_Bayes.ipynb` . Additionally, a visualization of the BERT model architecture is available in the documents folder.
+The transformers based classifier is available in `BERT.ipynb` or alternatively `BERT.py` and the Naive Bayes classifier is available in `Baseline_Naive_Bayes.ipynb` . Additionally, a visualization of the BERT model architecture is available in the documents folder.
 
 **Results**
 
 Results are summarized on a poster in the documents directory.
+
+**References** 
+
+[1] What Does BERT Look At? An Analysis of BERT's Attention
+Kevin Clark, Urvashi Khandelwal, Omer Levy, Christopher D. Manning https://arxiv.org/abs/1906.04341
+
+[2] BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova https://arxiv.org/abs/1810.04805
+
+[3] Tone indicators: what they are, why you should use them, and how to use them?
+https://toneindicators.carrd.co/
+
+[4] BertViz: Visualize attention in NLP Models. Jesse Vig, Martin Sotir, Phillip Glock
+https://github.com/jessevig/bertviz

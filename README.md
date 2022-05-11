@@ -29,3 +29,5 @@ https://toneindicators.carrd.co/
 
 [4] BertViz: Visualize attention in NLP Models. Jesse Vig, Martin Sotir, Phillip Glock
 https://github.com/jessevig/bertviz
+
+[5] BERTweet: A pre-trained language model for English Tweets. Dat Quoc Nguyen, Thanh Vu, Anh Tuan Nguyen. https://huggingface.co/docs/transformers/model_doc/bertweet

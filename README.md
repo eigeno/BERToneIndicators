@@ -2,7 +2,7 @@
 
 **Introduction**
 
-**Tone indicators** (written as /tone) are a tool used to **reduce ambiguity,** conveying information that is generally lost online. The literal text of informal communication like a tweet is often **insufficient to determine the meaning**, which relies on much a larger, inaccessible context. Tone indicators attempt to address this issue. Using data from Twitter, we built a BERT model to **classify the tone indicator tag** associated with a sentence. We then analyzed the various **attention heads** to gain semantic insight into which sets of words or other linguistic features are most associated with certain tone indicators.
+**Tone indicators** (written as /tone) are a tool used to **reduce ambiguity,** conveying information that is generally lost online. The literal text of informal communication like a tweet is often **insufficient to determine the meaning**, which relies on much a larger, inaccessible context. Tone indicators attempt to address this issue. Using data from Twitter, we built a BERT model to **classify the tone indicator tag** associated with a sentence. a visualization of the BERT model architecture is available in the documents folder. We then analyzed the various **attention heads** to gain semantic insight into which sets of words or other linguistic features are most associated with certain tone indicators. 
 
 **Dataset**
 
@@ -11,8 +11,7 @@ We also obtained a training set consisting of a separate and smaller scrape of t
 
 **Usage**
 
-The transformers based classifier is available in `BERT.ipynb` or alternatively `bert.py` and the Naive Bayes classifier is available in `Baseline_Naive_Bayes.ipynb` . Additionally, a visualization of the BERT model architecture is available in the documents folder.
-
+The transformers based classifier is available in `BERT.ipynb` or alternatively `bert.py` and the Naive Bayes classifier is available in `Baseline_Naive_Bayes.ipynb`.
 **Results**
 
 Results are summarized on a poster in the documents directory.

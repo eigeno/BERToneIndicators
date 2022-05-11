@@ -1,28 +1,20 @@
 # BERToneIndicators
 
-**Idea** 
+**Introduction**
 
-Train a BERT model on data from twitter to learn syntactic & semantic relations between language & tone indicator tags. 
+Tone indicators (written as /tone) are a tool used to reduce ambiguity,
+conveying information that is generally lost online. The literal text of informal communication like a tweet is often insufficient to determine the meaning, which relies on much a larger, inaccessible context. Tone indicators attempt to address this issue.
+Using data from Twitter, we built a BERT model to classify the tone indicator tag associated with a sentence. We then analyzed the various attention heads to gain semantic insight into which sets of words or other linguistic features are most associated with certain tone indicators.
 
-**What are tone indicators**
+**Dataset**
 
-Tone indicators are shorthand for words used to convey tone, which the Cambridge Dictionary defines as "a quality in the voice that expresses the speaker's feelings or thoughts". The tone of someone's voice can be joking, or serious; it can be teasing, or threatening. It can be negative, positive, or neutral. It can be sexually suggestive, or entirely friendly. Tone can do so much to change the meaning and implications of a sentence.
+Using the Twitter API, we scraped over 1.5 million tweets between January and March of 2022. The language of each tweet was determined using langdetect, which also cleans excess emojis. The end result was a subset of approximately 150,000 tweets.
+We also obtained a training set consisting of a separate and smaller scrape of tweets from 3 random days in February of 2022. All data in the training set was labeled with the emotional tag that it contained using one-hot encoding. All tags were stripped out and replaced with white space in the test set.
 
-Some examples of tone indicators are "/j", "/s", "/srs", "/p", "/r", "/ly", "neg", "pos", "/gen" and "/c". Though there are many others, these are the ones that are most commonly used and needed for clarity of communication. The intended use of tone indicators is in text, and they are prevalent on social media where miscommunication is rife, and posts and messages are often misinterpreted.
+**Usage**
 
-**What is BERT** 
+The BERT model with custom architecture is available in `BERT.ipynb` or alternatively `BERT.py` and the Naive Bayes classifier is available in `Baseline_Naive_Bayes.ipynb` . Additionally, a visualization of the BERT model architecture is available in the documents folder.
 
-BERT is at its core a transformer language model with a variable number of encoder layers and self-attention heads. A transformer is a deep learning model that adopts the mechanism of self-attention, differentially weighting the significance of each part of the input data.
+**Results**
 
-**The data** 
-
-We scraped twitter for any tweets containing strings matching 5 commonly used tone indicators `/srs /nbh /hyp /pos /neg` over the span of three months, which yielded approximately 1.5 million tweets in the raw dataset. After filtering for quality, we ended up with a dataset of approximately 150,000 tweets that the model was trained on. 
-
-The breakdown of the data per label is 
-``` 
-srs    51329
-nbh     4080
-hyp      105
-pos    78147
-neg    14146
-```
+Results are summarized on a poster in the documents directory.

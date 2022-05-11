@@ -79,7 +79,7 @@ if device == 'cuda':
 
 """# Data Analysis"""
 
-data = pd.read_csv('all_tweets.tsv', delimiter='\t', index_col=0, on_bad_lines='skip')
+data = pd.read_csv('all_tweets_english.tsv', delimiter='\t', index_col=0, on_bad_lines='skip')
 print(data.columns)
 data
 
@@ -381,7 +381,6 @@ def validating(validation_dataloader, model):
 
     avg_val_accuracy = total_eval_accuracy / validation_dataloader.dataset.__len__()
     avg_val_loss = total_eval_loss / validation_dataloader.dataset.__len__()
-    validation_time = format_time(time.time() - t0)
 
     print("  Accuracy: {0:.2f}".format(avg_val_accuracy))
     print("  Validation Loss: {0:.2f}".format(avg_val_loss))
@@ -404,6 +403,8 @@ epochs = 10
 
 total_t0 = time.time()
 
+
+
 for epoch_i in range(0, epochs):
     print("")
     print('======== Epoch {:} / {:} ========'.format(epoch_i + 1, epochs))
@@ -425,15 +426,22 @@ for epoch_i in range(0, epochs):
             'Validation Time': validation_time,
         }
     )
-
+    
     #save model
-torch.save({
-      'epoch': epoch_i+1,
-      'model_state_dict': model.state_dict(),
-      'optimizer_state_dict': optimizer.state_dict(),
-      'avg_train_loss': avg_train_loss,
-      }, f'./checkpoint_{epoch_i+1}.pt')
+    torch.save({
+          'epoch': epoch_i+1,
+          'model_state_dict': model.state_dict(),
+          'optimizer_state_dict': optimizer.state_dict(),
+          'training_stats':training_stats,
+          'avg_train_loss': avg_train_loss,
+          }, f'./new_new_checkpoint_{epoch_i+1}.pt')
 
-print("Training complete!")
+    os.makedirs("./pretrained/model_"+(epoch_i+str(1)))
+    os.makedirs("./pretrained/tokenizer_"+(epoch_i+str(1)))
+    model.save_pretrained("./pretrained/model_"+(epoch_i+str(1)))
+    tokenizer.save_pretrained("./pretrained/tokenizer_"+(epoch_i+str(1)))
+
+
+    print("Training complete!")
 
 print("Total training took {:} (h:mm:ss)".format(format_time(time.time()-total_t0)))

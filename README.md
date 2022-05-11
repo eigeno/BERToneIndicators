@@ -11,7 +11,7 @@ We also obtained a training set consisting of a separate and smaller scrape of t
 
 **Usage**
 
-The transformers based classifier is available in `BERT.ipynb` or alternatively `BERT.py` and the Naive Bayes classifier is available in `Baseline_Naive_Bayes.ipynb` . Additionally, a visualization of the BERT model architecture is available in the documents folder.
+The transformers based classifier is available in `BERT.ipynb` or alternatively `bert.py` and the Naive Bayes classifier is available in `Baseline_Naive_Bayes.ipynb` . Additionally, a visualization of the BERT model architecture is available in the documents folder.
 
 **Results**
 
